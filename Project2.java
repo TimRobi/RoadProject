@@ -53,14 +53,14 @@ class Project2 {
 
     public static ArrayList<RoadSection> createRoadSections(ArrayList<RoadVolume> volumeList, ArrayList<RoadSpeed> speedList) {
         ArrayList<RoadSection> roadSections = new ArrayList<>();
-          String volumeDate = volumeDateFormat.format(volume.getDate());
-            String speedDate = speedDateFormat.format(speed.getDate());
+        SimpleDateFormat volumeDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat speedDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
         for (RoadVolume volume : volumeList) {
             for (RoadSpeed speed : speedList) {
                 // Convert dates to a common format before comparison
-                String volumeDate = commonDateFormat.format(volume.getDate());
-                String speedDate = commonDateFormat.format(speed.getDate());
+                String volumeDate = volumeDateFormat.format(volume.getDate());
+                String speedDate = speedDateFormat.format(speed.getDate());
 
                 // Compare formatted dates and times
                 if (volumeDate.equals(speedDate) && volume.getTime().equals(speed.getTime())) {
@@ -77,6 +77,10 @@ class Project2 {
             }
         }
 
+        // Debugging: Check if roadSections has any data
+        System.out.println("Total RoadSections created: " + roadSections.size());
+        return roadSections;
+    }
         // Debugging: Check if roadSections has any data
         System.out.println("Total RoadSections created: " + roadSections.size());
         return roadSections;
