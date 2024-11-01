@@ -53,7 +53,8 @@ class Project2 {
 
     public static ArrayList<RoadSection> createRoadSections(ArrayList<RoadVolume> volumeList, ArrayList<RoadSpeed> speedList) {
         ArrayList<RoadSection> roadSections = new ArrayList<>();
-        SimpleDateFormat commonDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+          String volumeDate = volumeDateFormat.format(volume.getDate());
+            String speedDate = speedDateFormat.format(speed.getDate());
 
         for (RoadVolume volume : volumeList) {
             for (RoadSpeed speed : speedList) {
